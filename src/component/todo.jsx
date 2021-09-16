@@ -61,7 +61,6 @@ class Todo extends Component {
           ? todo.filter((items) => items.checked !== true)
           : todo.filter((items) => items.checked !== false)
         : todo;
-    console.log(todo);
     return (
       <div className="row">
         <div className="col-lg-7">

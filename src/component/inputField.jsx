@@ -4,7 +4,7 @@ class InputField extends Component {
   state = { data: {}, errors: {} };
   validate(input) {
     const errors = [this.state.errors];
-    if (input.value === "") {
+    if (input.value.trim() === "") {
       errors.empty = "this item can't be empty";
     }
     return errors;

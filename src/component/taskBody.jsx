@@ -26,10 +26,7 @@ class TaskBody extends Component {
       this.setState({ data });
     }
   }
-  // decorationText(item, todo) {
-  //   if (item.id === todo.id && item.checked === true)
-  //     return { textDecoration: "line-through" ;
-  // }
+
   render() {
     const { todo, handleDelete, handleCheckbox, activeOption, handleEdit } =
       this.props;
@@ -51,7 +48,14 @@ class TaskBody extends Component {
         <hr className="p-3" />
         <ul>
           {todo.map((item) => (
-            <li key={item.id} className="card pl-4 p-4 mb-5">
+            <li
+              key={item.id}
+              style={{
+                backgroundColor:
+                  item.checked === true ? "rgb(170, 170, 170)" : null,
+              }}
+              className="card pl-4 p-4 mb-5"
+            >
               <div className="check-round">
                 <input
                   type="checkbox"
