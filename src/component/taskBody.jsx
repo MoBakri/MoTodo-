@@ -22,9 +22,14 @@ class TaskBody extends Component {
     if (prevProps.todo !== this.props.todo) {
       const data = { ...this.state.data };
       data.id = "";
+
       this.setState({ data });
     }
   }
+  // decorationText(item, todo) {
+  //   if (item.id === todo.id && item.checked === true)
+  //     return { textDecoration: "line-through" ;
+  // }
   render() {
     const { todo, handleDelete, handleCheckbox, activeOption, handleEdit } =
       this.props;
@@ -47,36 +52,44 @@ class TaskBody extends Component {
         <ul>
           {todo.map((item) => (
             <li key={item.id} className="card pl-4 p-4 mb-5">
-              <div className="custom-control custom-checkbox ">
+              <div className="check-round">
                 <input
                   type="checkbox"
-                  className="custom-control-input "
-                  id={`${item.id}`}
+                  // className="custom-control-input "
+                  id={item.id}
                   checked={item.checked}
                   onChange={(e) =>
                     handleCheckbox(e.currentTarget.checked, item)
                   }
                 />
-                <label
-                  className="custom-control-label display-4"
-                  htmlFor={`${item.id}`}
-                >
-                  <span className=" checkbox-title">
-                    {data.id === item.id ? (
-                      <React.Fragment>
-                        <input
-                          className="form-control"
-                          type="text"
-                          value={data.title}
-                          onChange={this.handleEditChange}
-                        />
-                      </React.Fragment>
-                    ) : (
-                      item.title
-                    )}
-                  </span>{" "}
-                  {/* edit input tag */}
+                <label className=" " htmlFor={item.id}>
+                  {" "}
                 </label>
+                <span className=" checkbox-title">
+                  {data.id === item.id ? (
+                    <React.Fragment>
+                      <input
+                        className="form-control"
+                        type="text"
+                        autoFocus
+                        value={data.title}
+                        onChange={this.handleEditChange}
+                      />
+                    </React.Fragment>
+                  ) : (
+                    <span
+                      className="display-4"
+                      style={
+                        item.checked === true
+                          ? { textDecoration: "line-through" }
+                          : null
+                      }
+                    >
+                      {item.title}
+                    </span>
+                  )}
+                </span>{" "}
+                {/* edit input tag */}
               </div>
               <div id={`${item.id}`} className="card-body">
                 <div

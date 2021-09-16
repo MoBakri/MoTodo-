@@ -7,9 +7,11 @@ class Todo extends Component {
   state = { todo: [] };
 
   handleClick = (newTodo) => {
-    this.setState((prevState) => {
-      return { todo: [...prevState.todo, { ...newTodo }] };
-    });
+    if (newTodo.id !== undefined)
+      this.setState((prevState) => {
+        if (prevState.todo.map((i) => i.id).indexOf(newTodo.id))
+          return { todo: [...prevState.todo, { ...newTodo }] };
+      });
   };
   handleEdit = (item) => {
     const todo = [...this.state.todo];
@@ -59,6 +61,7 @@ class Todo extends Component {
           ? todo.filter((items) => items.checked !== true)
           : todo.filter((items) => items.checked !== false)
         : todo;
+    console.log(todo);
     return (
       <div className="row">
         <div className="col-lg-7">

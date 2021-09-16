@@ -26,7 +26,47 @@ code {
   color: rgb(57, 37, 241);
 }
 
-.checkbox-title {
-  color: rgb(85, 76, 76);
-  font-size: 2rem;
+/*circle checkbox*/
+.check-round {
+  position: relative;
 }
+
+.check-round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.check-round label:after {
+  content: "";
+  border: 2px solid #fff;
+  transform: rotate(-45deg);
+  opacity: 0;
+  position: absolute;
+  border-top: none;
+  border-right: none;
+  height: 6px;
+  width: 12px;
+  left: 17px;
+  top: 18px;
+}
+
+.check-round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.check-round input[type="checkbox"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.check-round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+/*end circle checkbox*/
