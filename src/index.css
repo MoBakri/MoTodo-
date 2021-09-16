@@ -36,8 +36,8 @@ code {
   border: 1px solid #ccc;
   border-radius: 50%;
   cursor: pointer;
-  height: 28px;
-  width: 28px;
+  height: 23px;
+  width: 23px;
   right: 0;
   top: 0;
   position: absolute;
@@ -53,8 +53,8 @@ code {
   border-right: none;
   height: 6px;
   width: 12px;
-  left: 17px;
-  top: 18px;
+  left: 5px;
+  top: 7px;
 }
 
 .check-round input[type="checkbox"] {
